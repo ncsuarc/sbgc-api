@@ -1,29 +1,38 @@
-# sbgc-api-examples
-SimpleBGC Serial API examples and libraries
+# SimpleBGC Serial API
 
-This folders contains SBGC library and example sketches for Arduino, 
-that shows how to control SimpleBGC-driven gimbal via Serial API.
+A fork of the official [SimpleBGC Serial
+API](https://github.com/alexmos/sbgc-api-examples) written by Aleksei
+Moskalenko with improved documentation, high-level usage, unit tests, and more.
 
-API specs are available at the http://www.basecamelectronics.com/serialapi/
+The specification of the API that this project implements are available
+[here](http://www.basecamelectronics.com/serialapi/).
 
+This fork was started when NC State's Aerial Robotic Club bought a SimpleBGC
+gimbal controller and was dissatisfied with the documentation and maintenance
+of provided library. Because of this, we have forked the API examples repo,
+isolated the libraries, improved the documentation, and made other
+modifications.
 
-Contents:
+This fork will attempt to stay up to date with the [official serial
+API](http://www.basecamelectronics.com/serialapi/) but will not be actively
+watching it for updates and changes.
 
-	libraries/SBGC_lib - common library that can be used in any C/C++ project
-	libraries/SBGC_Arduino - Arduino-specific library used in the examples
+## Design
 
+Broadly, there are two ways you can use this API: a low-level and a high-level.
 
-How to run examples:
+The **low-level** is written in C++ and is only meant to be accessed through
+C++. It contains a simple *serial command data type*; a *parser*, which
+translates back and forth between the serial command data type and a series of
+bytes; and an *abstract com object* that can read and write to the serial port.
 
-1. Copy the content of this folder (preserving subfolder structure) to your "Sketchbook" folder, 
-	 as specified in the "File -> Preferences -> Sketchbook location" in the Arduino IDE.
-	 This step is important to let a compiler to find and include libraries.
-2. Open any *.ino example in the Arduino IDE, compile and upload to your Arduino board.
-3. Connect Arduino's serial interface to the UART connector on the SimpleBGC board:
-    Arduino GND -> SimpleBGC GND
-    Arduino TX -> SimpleBGC RX (optional)
-    Arduino RX -> SimpleBGC TX
-    You can power Arduino separatly or via +5V from onboard UART connector
+The **high-level** is written in C++ with the intent of being used in other
+languages. It essentially wraps the low-level by providing a limited interface
+for performing standard operations through a given com object. This is included
+so that the user never has to worry about the specifics of how to communicate
+with gimbal and instead can think about sending and receiving commands.
 
+## Notes
 
-All examples were tested with the Arduino 1.0 IDE, Pro Mini and UNO boards.
+* The `ArduinoComObj` has never been tested by any maintainers of this repo,
+  but is taken from upstream.
