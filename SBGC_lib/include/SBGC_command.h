@@ -1,20 +1,19 @@
-/* 
-	SimpleBGC Serial API  library - definition of commands
-	More info: http://www.basecamelectronics.com/serialapi/
+/*
+        SimpleBGC Serial API  library - definition of commands
+        More info: http://www.basecamelectronics.com/serialapi/
 
 
-	Copyright (c) 2014-2015 Aleksei Moskalenko
-	All rights reserved.
-	
-	See license info in the SBGC.h
-*/   
+        Copyright (c) 2014-2015 Aleksei Moskalenko
+        All rights reserved.
 
-#ifndef  __SBGC_command__
-#define  __SBGC_command__
+        See license info in the SBGC.h
+*/
 
-#include <inttypes.h>
+#ifndef __SBGC_command__
+#define __SBGC_command__
+
 #include "SBGC_rc.h"
-
+#include <inttypes.h>
 
 // Size of header and checksums
 #define SBGC_CMD_NON_PAYLOAD_BYTES 5
@@ -23,39 +22,36 @@
 // Max. size of a payload data
 #define SBGC_CMD_DATA_SIZE (SBGC_CMD_MAX_BYTES - SBGC_CMD_NON_PAYLOAD_BYTES)
 
-
-
 ////////////////////// Command ID definitions ////////////////
-#define SBGC_CMD_READ_PARAMS  82
-#define SBGC_CMD_WRITE_PARAMS  87
-#define SBGC_CMD_REALTIME_DATA  68
-#define SBGC_CMD_BOARD_INFO  86
-#define SBGC_CMD_CALIB_ACC  65
-#define SBGC_CMD_CALIB_GYRO  103
-#define SBGC_CMD_CALIB_EXT_GAIN  71
-#define SBGC_CMD_USE_DEFAULTS  70
-#define SBGC_CMD_CALIB_POLES  80
-#define SBGC_CMD_RESET  114
+#define SBGC_CMD_READ_PARAMS 82
+#define SBGC_CMD_WRITE_PARAMS 87
+#define SBGC_CMD_REALTIME_DATA 68
+#define SBGC_CMD_BOARD_INFO 86
+#define SBGC_CMD_CALIB_ACC 65
+#define SBGC_CMD_CALIB_GYRO 103
+#define SBGC_CMD_CALIB_EXT_GAIN 71
+#define SBGC_CMD_USE_DEFAULTS 70
+#define SBGC_CMD_CALIB_POLES 80
+#define SBGC_CMD_RESET 114
 #define SBGC_CMD_HELPER_DATA 72
-#define SBGC_CMD_CALIB_OFFSET  79
-#define SBGC_CMD_CALIB_BAT  66
-#define SBGC_CMD_MOTORS_ON   77
-#define SBGC_CMD_MOTORS_OFF  109
-#define SBGC_CMD_CONTROL   67
-#define SBGC_CMD_TRIGGER_PIN  84
+#define SBGC_CMD_CALIB_OFFSET 79
+#define SBGC_CMD_CALIB_BAT 66
+#define SBGC_CMD_MOTORS_ON 77
+#define SBGC_CMD_MOTORS_OFF 109
+#define SBGC_CMD_CONTROL 67
+#define SBGC_CMD_TRIGGER_PIN 84
 #define SBGC_CMD_EXECUTE_MENU 69
-#define SBGC_CMD_GET_ANGLES  73
-#define SBGC_CMD_CONFIRM  67
-
+#define SBGC_CMD_GET_ANGLES 73
+#define SBGC_CMD_CONFIRM 67
 
 // Starting from board ver.3.0
-#define SBGC_CMD_BOARD_INFO_3  20
+#define SBGC_CMD_BOARD_INFO_3 20
 #define SBGC_CMD_READ_PARAMS_3 21
 #define SBGC_CMD_WRITE_PARAMS_3 22
-#define SBGC_CMD_REALTIME_DATA_3  23
+#define SBGC_CMD_REALTIME_DATA_3 23
 #define SBGC_CMD_SELECT_IMU_3 24
-#define SBGC_CMD_REALTIME_DATA_4  25
-#define SBGC_CMD_ENCODERS_CALIB_OFFSET_4  26
+#define SBGC_CMD_REALTIME_DATA_4 25
+#define SBGC_CMD_ENCODERS_CALIB_OFFSET_4 26
 #define SBGC_CMD_ENCODERS_CALIB_FLD_OFFSET_4 27
 #define SBGC_CMD_READ_PROFILE_NAMES 28
 #define SBGC_CMD_WRITE_PROFILE_NAMES 29
@@ -98,11 +94,8 @@
 #define SBGC_CMD_CALIB_MOTOR_MAG_LINK 74
 #define SBGC_CMD_GYRO_CORRECTION 75
 
-
 #define SBGC_CMD_DEBUG_VARS_INFO_3 253
-#define SBGC_CMD_DEBUG_VARS_3  254
-#define SBGC_CMD_ERROR  255
-
-
+#define SBGC_CMD_DEBUG_VARS_3 254
+#define SBGC_CMD_ERROR 255
 
 #endif //__SBGC_command__
